@@ -9,6 +9,9 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatIconModule } from '@angular/material/icon';
 import { HeaderComponent } from './components/header/header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
+import { MenuComponent } from './components/menu/menu.component';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   imports: [
@@ -19,8 +22,21 @@ import { MatToolbarModule } from '@angular/material/toolbar';
     FlexLayoutModule,
     MatIconModule,
     MatToolbarModule,
+    MatMenuModule,
+    MatListModule,
   ],
-  declarations: [PageLoginComponent, LoginComponent, HeaderComponent],
-  exports: [PageLoginComponent, HeaderComponent],
+  declarations: [
+    PageLoginComponent,
+    LoginComponent,
+    HeaderComponent,
+    MenuComponent,
+  ],
+  exports: [
+    PageLoginComponent,
+    HeaderComponent,
+    MenuComponent,
+    MatIconModule,
+    FlexLayoutModule,
+  ],
 })
 export class CoreModule {}

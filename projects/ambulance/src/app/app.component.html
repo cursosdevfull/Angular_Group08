@@ -1,6 +1,13 @@
-<mat-sidenav-container>
-  <mat-sidenav opened="true" mode="side">Menu</mat-sidenav>
+<mat-sidenav-container autosize="true">
+  <mat-sidenav opened="true" mode="side">
+    <div class="logo" fxLayout fxLayoutGap="20px" fxLayoutAlign="start center">
+      <mat-icon>face</mat-icon>
+      <h3 *ngIf="expanded" fxLayoutGap>Sistema de historias</h3>
+    </div>
+    <amb-menu (onToggleExpanded)="toggleExpanded($event)"></amb-menu>
+  </mat-sidenav>
   <mat-sidenav-content>
     <amb-header></amb-header>
+    <router-outlet></router-outlet>
   </mat-sidenav-content>
 </mat-sidenav-container>

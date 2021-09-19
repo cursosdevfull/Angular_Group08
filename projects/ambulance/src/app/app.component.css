@@ -3,6 +3,19 @@ mat-sidenav-content {
 }
 
 mat-sidenav {
-  width: 280px;
+  max-width: 280px;
   background-color: rgb(45, 50, 62);
+}
+
+.logo {
+  padding: 0 24px;
+  background-color: rbg(30, 33, 41);
+  color: hsla(0, 0%, 100%, 0.7) !important;
+  min-height: 64px;
+}
+
+.logo h3 {
+  padding: 0;
+  margin: 0;
+  line-height: 64px;
 }
