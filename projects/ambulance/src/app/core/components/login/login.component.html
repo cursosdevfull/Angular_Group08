@@ -1,9 +1,26 @@
-<mat-form-field appearance="outline">
-  <mat-label>Correo</mat-label>
-  <input type="text" matInput />
-</mat-form-field>
-<mat-form-field appearance="outline">
-  <mat-label>Contraseña</mat-label>
-  <input type="password" matInput />
-</mat-form-field>
-<button mat-raised-button color="primary">Ingresar</button>
+<form fxLayout="column">
+  <h2>Credenciales</h2>
+  <mat-form-field appearance="outline">
+    <mat-label>Correo</mat-label>
+    <input type="text" matInput required placeholder="Ingrese su correo" />
+    <mat-icon matSuffix>email</mat-icon>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Contraseña</mat-label>
+    <input
+      type="{{ togglePassword ? 'password' : 'text' }}"
+      matInput
+      required
+      placeholder="Ingrese su contraseña"
+    />
+    <button
+      mat-icon-button
+      matSuffix
+      type="button"
+      (click)="togglePassword = !togglePassword"
+    >
+      <mat-icon>{{ togglePassword ? "lock" : "lock_open" }}</mat-icon>
+    </button>
+  </mat-form-field>
+  <button mat-raised-button color="primary">Ingresar</button>
+</form>

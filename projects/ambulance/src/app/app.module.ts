@@ -11,6 +11,7 @@ import { CoreModule } from './core/core.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,14 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     ListaComponent,
     ItemComponent,
   ],
-  imports: [BrowserModule, CoreModule, DashboardModule, AppRoutingModule, BrowserAnimationsModule],
+  imports: [
+    BrowserModule,
+    CoreModule,
+    DashboardModule,
+    AppRoutingModule,
+    BrowserAnimationsModule,
+    MatSidenavModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
