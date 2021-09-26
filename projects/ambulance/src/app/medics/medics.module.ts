@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { UsersRoutingModule } from './users-routing.module';
+import { MedicsRoutingModule } from './medics-routing.module';
 import { PageListComponent } from './pages/page-list/page-list.component';
 
 
@@ -11,7 +11,7 @@ import { PageListComponent } from './pages/page-list/page-list.component';
   ],
   imports: [
     CommonModule,
-    UsersRoutingModule
+    MedicsRoutingModule
   ]
 })
-export class UsersModule { }
+export class MedicsModule { }
