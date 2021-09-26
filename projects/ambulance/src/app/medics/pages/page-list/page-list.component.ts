@@ -13,7 +13,11 @@ export class PageListComponent implements OnInit {
     { id: 3, name: 'Jack', cmp: '89523' },
   ];
 
-  metaDataColumns: MetaDataColumn[] = [{ field: 'id', title: 'ID' }];
+  metaDataColumns: MetaDataColumn[] = [
+    { field: 'id', title: 'ID' },
+    { field: 'name', title: 'Nombre' },
+    { field: 'cmp', title: 'Número de colegiatura' },
+  ];
 
   // listFields: string[] = ['id', 'name', 'cmp'];
 

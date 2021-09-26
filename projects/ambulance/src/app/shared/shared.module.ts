@@ -8,6 +8,15 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatCardModule } from '@angular/material/card';
 import { TableComponent } from './components/table/table.component';
 import { MatTableModule } from '@angular/material/table';
+import {
+  PerfectScrollbarConfigInterface,
+  PerfectScrollbarModule,
+  PERFECT_SCROLLBAR_CONFIG,
+} from 'ngx-perfect-scrollbar';
+
+const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
+  suppressScrollX: true,
+};
 
 @NgModule({
   declarations: [TitleComponent, ContainerComponent, TableComponent],
@@ -19,6 +28,17 @@ import { MatTableModule } from '@angular/material/table';
     MatCardModule,
     MatTableModule,
   ],
-  exports: [TitleComponent, ContainerComponent, TableComponent],
+  exports: [
+    TitleComponent,
+    ContainerComponent,
+    TableComponent,
+    PerfectScrollbarModule,
+  ],
+  providers: [
+    {
+      provide: PERFECT_SCROLLBAR_CONFIG,
+      useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG,
+    },
+  ],
 })
 export class SharedModule {}

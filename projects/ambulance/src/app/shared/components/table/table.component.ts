@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
 import { MetaDataColumn } from '../../interfaces/metacolumn.interface';
 
 interface IData {
@@ -14,7 +14,7 @@ interface IData {
 export class TableComponent implements OnInit {
   @Input() data: any;
   @Input() metaDataColumns!: MetaDataColumn[];
-  listFields: string[];
+  listFields: string[] = [];
   /*   data: IData[] = [
     { id: 1, name: 'John' },
     { id: 2, name: 'Jane' },
@@ -27,7 +27,9 @@ export class TableComponent implements OnInit {
 
   listFields: string[] = ['id', 'name']; */
 
-  constructor() {
+  constructor() {}
+
+  ngOnChanges(changes: SimpleChanges) {
     this.listFields = this.metaDataColumns.map((x) => x.field);
   }
 
