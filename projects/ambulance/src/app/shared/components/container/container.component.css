@@ -1,0 +1,9 @@
+.container {
+  padding: 20px 0;
+  background-color: whitesmoke;
+  height: calc(100vh - 144px);
+}
+
+mat-card {
+  padding: 20px;
+}

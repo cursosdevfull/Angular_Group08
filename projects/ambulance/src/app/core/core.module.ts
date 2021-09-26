@@ -12,6 +12,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MenuComponent } from './components/menu/menu.component';
 import { MatListModule } from '@angular/material/list';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   imports: [
@@ -24,6 +25,7 @@ import { MatListModule } from '@angular/material/list';
     MatToolbarModule,
     MatMenuModule,
     MatListModule,
+    RouterModule,
   ],
   declarations: [
     PageLoginComponent,
