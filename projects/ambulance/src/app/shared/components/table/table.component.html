@@ -1,0 +1,24 @@
+<div fxLayout="column">
+  <table mat-table [dataSource]="data">
+    <ng-container
+      [matColumnDef]="metadata.field"
+      *ngFor="let metadata of metaDataColumns"
+    >
+      <th mat-header-cell *matHeaderCellDef>{{ metadata.title }}</th>
+      <td mat-cell *matCellDef="let row">{{ row[metadata.field] }}</td>
+    </ng-container>
+
+    <!--     <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let row">{{ row.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Nombre</th>
+      <td mat-cell *matCellDef="let row">{{ row.name }}</td>
+    </ng-container> -->
+
+    <tr mat-header-row *matHeaderRowDef="listFields"></tr>
+    <tr mat-row *matRowDef="let row; columns: listFields" class="highline"></tr>
+  </table>
+</div>
