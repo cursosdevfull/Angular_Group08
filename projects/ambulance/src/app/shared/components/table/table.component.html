@@ -1,4 +1,5 @@
 <div fxLayout="column">
+  <ng-content></ng-content>
   <table mat-table [dataSource]="data">
     <ng-container
       [matColumnDef]="metadata.field"
@@ -7,16 +8,6 @@
       <th mat-header-cell *matHeaderCellDef>{{ metadata.title }}</th>
       <td mat-cell *matCellDef="let row">{{ row[metadata.field] }}</td>
     </ng-container>
-
-    <!--     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let row">{{ row.id }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="name">
-      <th mat-header-cell *matHeaderCellDef>Nombre</th>
-      <td mat-cell *matCellDef="let row">{{ row.name }}</td>
-    </ng-container> -->
 
     <tr mat-header-row *matHeaderRowDef="listFields; sticky: true"></tr>
     <tr mat-row *matRowDef="let row; columns: listFields" class="highline"></tr>

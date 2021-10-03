@@ -1,4 +1,13 @@
-import { Component, Input, OnInit, SimpleChanges } from '@angular/core';
+import {
+  Component,
+  ContentChildren,
+  Input,
+  OnInit,
+  QueryList,
+  SimpleChanges,
+  ViewChild,
+} from '@angular/core';
+import { MatColumnDef, MatTable } from '@angular/material/table';
 import { MetaDataColumn } from '../../interfaces/metacolumn.interface';
 
 interface IData {
@@ -15,23 +24,27 @@ export class TableComponent implements OnInit {
   @Input() data: any;
   @Input() metaDataColumns!: MetaDataColumn[];
   listFields: string[] = [];
-  /*   data: IData[] = [
-    { id: 1, name: 'John' },
-    { id: 2, name: 'Jane' },
-    { id: 3, name: 'Jack' },
-    { id: 4, name: 'Jill' },
-    { id: 5, name: 'Joe' },
-  ];
-
-
-
-  listFields: string[] = ['id', 'name']; */
+  @ContentChildren(MatColumnDef, { descendants: true })
+  columnsDef!: QueryList<MatColumnDef>;
+  @ViewChild(MatTable, { static: true }) table!: MatTable<any>;
 
   constructor() {}
 
   ngOnChanges(changes: SimpleChanges) {
-    this.listFields = this.metaDataColumns.map((x) => x.field);
+    if (changes.metaDataColumns) {
+      this.listFields = this.metaDataColumns.map((x) => x.field);
+    }
   }
 
   ngOnInit(): void {}
+
+  ngAfterContentInit() {
+    if (!this.columnsDef) {
+      return;
+    }
+    this.columnsDef.forEach((columnDef) => {
+      this.listFields.push(columnDef.name);
+      this.table?.addColumnDef(columnDef);
+    });
+  }
 }
