@@ -1,0 +1,19 @@
+<div fxLayout fxLayoutAlign="end center" fxLayoutGap="15px">
+  <mat-paginator
+    [length]="length"
+    [pageSize]="pageSize"
+    (page)="changePage($event)"
+    showFirstLastButtons="true"
+  >
+  </mat-paginator>
+
+  <mat-select
+    fxFlex="1 1 80px"
+    [(value)]="currentPage"
+    (selectionChange)="changePage($event)"
+  >
+    <mat-option [value]="el" *ngFor="let el of arrayPages"
+      >Página {{ el + 1 }}</mat-option
+    >
+  </mat-select>
+</div>

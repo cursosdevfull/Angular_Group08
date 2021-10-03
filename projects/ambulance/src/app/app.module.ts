@@ -12,6 +12,8 @@ import { DashboardModule } from './dashboard/dashboard.module';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatPaginatorIntl } from '@angular/material/paginator';
+import { Paginator } from './shared/classes/paginator';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,7 @@ import { MatSidenavModule } from '@angular/material/sidenav';
     BrowserAnimationsModule,
     MatSidenavModule,
   ],
-  providers: [],
+  providers: [{ provide: MatPaginatorIntl, useClass: Paginator }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
