@@ -14,6 +14,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { Paginator } from './shared/classes/paginator';
+import { UtilsService } from './services/utils.service';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -29,8 +31,13 @@ import { Paginator } from './shared/classes/paginator';
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSidenavModule,
+    MatDialogModule,
   ],
-  providers: [{ provide: MatPaginatorIntl, useClass: Paginator }],
+  providers: [
+    { provide: MatPaginatorIntl, useClass: Paginator },
+    // UtilsService,
+    /*    { provide: UtilsService, useClass: UtilsService }, */
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

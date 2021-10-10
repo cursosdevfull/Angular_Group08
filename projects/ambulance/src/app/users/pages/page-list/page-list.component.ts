@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { Observable } from 'rxjs';
 import { environment } from '../../../../environments/environment';
+import { UtilsService } from '../../../services/utils.service';
 import { BaseComponent } from '../../../shared/classes/baseComponent';
 import { ConfirmComponent } from '../../../shared/components/confirm/confirm.component';
 import { KeyPadButton } from '../../../shared/interfaces/keybutton.interface';
@@ -16,45 +18,15 @@ export class PageListComponent extends BaseComponent {
     { id: 1, username: 'John', area: 'Contabilidad' },
     { id: 2, username: 'Jane', area: 'Recursos Humanos' },
     { id: 3, username: 'Jack', area: 'Asistencia Social' },
-    { id: 1, username: 'John', area: 'Contabilidad' },
-    { id: 2, username: 'Jane', area: 'Recursos Humanos' },
-    { id: 3, username: 'Jack', area: 'Asistencia Social' },
-    { id: 1, username: 'John', area: 'Contabilidad' },
-    { id: 2, username: 'Jane', area: 'Recursos Humanos' },
-    { id: 3, username: 'Jack', area: 'Asistencia Social' },
-    { id: 1, username: 'John', area: 'Contabilidad' },
-    { id: 2, username: 'Jane', area: 'Recursos Humanos' },
-    { id: 3, username: 'Jack', area: 'Asistencia Social' },
-    { id: 1, username: 'John', area: 'Contabilidad' },
-    { id: 2, username: 'Jane', area: 'Recursos Humanos' },
-    { id: 3, username: 'Jack', area: 'Asistencia Social' },
-    { id: 1, username: 'John', area: 'Contabilidad' },
-    { id: 2, username: 'Jane', area: 'Recursos Humanos' },
-    { id: 3, username: 'Jack', area: 'Asistencia Social' },
-    { id: 1, username: 'John', area: 'Contabilidad' },
-    { id: 2, username: 'Jane', area: 'Recursos Humanos' },
-    { id: 3, username: 'Jack', area: 'Asistencia Social' },
-    { id: 1, username: 'John', area: 'Contabilidad' },
-    { id: 2, username: 'Jane', area: 'Recursos Humanos' },
-    { id: 3, username: 'Jack', area: 'Asistencia Social' },
-    { id: 1, username: 'John', area: 'Contabilidad' },
-    { id: 2, username: 'Jane', area: 'Recursos Humanos' },
-    { id: 3, username: 'Jack', area: 'Asistencia Social' },
-    { id: 1, username: 'John', area: 'Contabilidad' },
-    { id: 2, username: 'Jane', area: 'Recursos Humanos' },
-    { id: 3, username: 'Jack', area: 'Asistencia Social' },
-    { id: 1, username: 'John', area: 'Contabilidad' },
-    { id: 2, username: 'Jane', area: 'Recursos Humanos' },
-    { id: 3, username: 'Jack', area: 'Asistencia Social' },
-    { id: 1, username: 'John', area: 'Contabilidad' },
-    { id: 2, username: 'Jane', area: 'Recursos Humanos' },
-    { id: 3, username: 'Jack', area: 'Asistencia Social' },
-    { id: 1, username: 'John', area: 'Contabilidad' },
-    { id: 2, username: 'Jane', area: 'Recursos Humanos' },
-    { id: 3, username: 'Jack', area: 'Asistencia Social' },
-    { id: 1, username: 'John', area: 'Contabilidad' },
-    { id: 2, username: 'Jane', area: 'Recursos Humanos' },
-    { id: 3, username: 'Jack', area: 'Asistencia Social' },
+    { id: 4, username: 'John', area: 'Contabilidad' },
+    { id: 5, username: 'Jane', area: 'Recursos Humanos' },
+    { id: 6, username: 'Jack', area: 'Asistencia Social' },
+    { id: 7, username: 'John', area: 'Contabilidad' },
+    { id: 8, username: 'Jane', area: 'Recursos Humanos' },
+    { id: 9, username: 'Jack', area: 'Asistencia Social' },
+    { id: 10, username: 'John', area: 'Contabilidad' },
+    { id: 11, username: 'Jane', area: 'Recursos Humanos' },
+    { id: 12, username: 'Jack', area: 'Asistencia Social' },
   ];
   totalRecords = this.records.length;
   keypadButtons: KeyPadButton[] = [
@@ -78,8 +50,8 @@ export class PageListComponent extends BaseComponent {
     { field: 'area', title: 'Área' },
   ];
 
-  constructor(private dialog: MatDialog) {
-    super();
+  constructor(private dialog: MatDialog, public utilsService: UtilsService) {
+    super(utilsService);
     this.changePage(0);
   }
 
@@ -88,10 +60,4 @@ export class PageListComponent extends BaseComponent {
   }
 
   edit(row: any) {}
-  delete(row: any) {
-    this.dialog.open(ConfirmComponent);
-    /*  if (confirm('¿Quieres eliminar?')) {
-      alert('Eliminado');
-    } */
-  }
 }
