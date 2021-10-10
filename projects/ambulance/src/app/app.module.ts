@@ -1,21 +1,19 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
-
 import { InicioComponent } from './inicio/inicio.component';
 import { SubtituloComponent } from './subtitulo/subtitulo.component';
 import { ListaComponent } from './lista/lista.component';
 import { ItemComponent } from './item/item.component';
 import { CoreModule } from './core/core.module';
-import { DashboardModule } from './dashboard/dashboard.module';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatPaginatorIntl } from '@angular/material/paginator';
 import { Paginator } from './shared/classes/paginator';
-import { UtilsService } from './services/utils.service';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 
 @NgModule({
   declarations: [
@@ -32,6 +30,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     BrowserAnimationsModule,
     MatSidenavModule,
     MatDialogModule,
+    MatSnackBarModule,
+    MatBottomSheetModule,
   ],
   providers: [
     { provide: MatPaginatorIntl, useClass: Paginator },

@@ -39,6 +39,7 @@ export abstract class BaseComponent {
       } else {
         this.changePage(this.currentPage === 0 ? 0 : this.currentPage - 1);
       }
+      this.utilsService.showMessage('Eliminado correctamente');
     });
   }
 
