@@ -49,5 +49,5 @@ export abstract class BaseComponent {
     return !!this.records.slice(skip, skip + pageSize).length;
   }
 
-  abstract edit(row: any): void;
+  abstract openForm(row: any): void;
 }

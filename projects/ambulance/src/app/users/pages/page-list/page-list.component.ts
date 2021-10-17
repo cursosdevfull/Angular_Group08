@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
 import { UtilsService } from '../../../services/utils.service';
 import { BaseComponent } from '../../../shared/classes/baseComponent';
 import { KeyPadButton } from '../../../shared/interfaces/keybutton.interface';
 import { MetaDataColumn } from '../../../shared/interfaces/metacolumn.interface';
+import { FormComponent } from '../../components/form/form.component';
 import { UserModel } from '../../domain/user.model';
 import { UserExportDto } from '../../dtos/user-export.dto';
 
@@ -65,8 +65,14 @@ export class PageListComponent extends BaseComponent {
           dto
         );
         break;
+      case 'NEW':
+        this.openForm();
+        break;
     }
   }
 
-  edit(row: any) {}
+  openForm(row: any = null) {
+    const options = { panelClass: 'panel-container' };
+    this.utilsService.showModal(FormComponent, options);
+  }
 }

@@ -49,4 +49,11 @@ export class UtilsService {
     const options: OptionsExport<T, U> = { title, fileName, content, dto };
     this.bottomSheet.open(DownloadComponent, { data: options });
   }
+
+  showModal(
+    classComponent: any,
+    options: { [s: string]: string | boolean | number | object }
+  ): MatDialogRef<any> {
+    return this.dialog.open(classComponent, options);
+  }
 }
