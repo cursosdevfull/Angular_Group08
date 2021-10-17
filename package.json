@@ -23,6 +23,7 @@
     "@angular/router": "~12.2.0",
     "cdev-table": "0.0.1",
     "ngx-perfect-scrollbar": "^10.1.1",
+    "pdfmake": "^0.1.68",
     "rxjs": "~6.6.0",
     "tslib": "^2.3.0",
     "xlsx": "^0.17.2",
