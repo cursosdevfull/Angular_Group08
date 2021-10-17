@@ -16,6 +16,8 @@ import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { IconService } from './services/icon.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ConfigModule } from './config/modules/config.module';
+import { configLayout } from './config/constants/config.constant';
 
 @NgModule({
   declarations: [
@@ -35,6 +37,7 @@ import { HttpClientModule } from '@angular/common/http';
     MatSnackBarModule,
     MatBottomSheetModule,
     HttpClientModule,
+    ConfigModule.forRoot(configLayout),
   ],
   providers: [
     { provide: MatPaginatorIntl, useClass: Paginator },

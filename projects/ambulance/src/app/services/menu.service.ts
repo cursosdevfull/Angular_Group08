@@ -11,7 +11,7 @@ export interface IMenu {
 })
 export class MenuService {
   private listMenu: IMenu[] = [
-    { title: 'Dashboard', url: '/dashboard', icon: 'tablero' },
+    { title: 'Dashboard', url: '/', icon: 'tablero' },
     { title: 'Historias', url: '/histories', icon: 'historia' },
     { title: 'Medicos', url: '/medics', icon: 'medico' },
     { title: 'Pilotos', url: '/drivers', icon: 'piloto' },

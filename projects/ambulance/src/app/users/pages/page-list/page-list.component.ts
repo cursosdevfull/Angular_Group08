@@ -1,13 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
-import { environment } from '../../../../environments/environment';
+import { Component } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { UtilsService } from '../../../services/utils.service';
 import { BaseComponent } from '../../../shared/classes/baseComponent';
-import { ConfirmComponent } from '../../../shared/components/confirm/confirm.component';
 import { KeyPadButton } from '../../../shared/interfaces/keybutton.interface';
 import { MetaDataColumn } from '../../../shared/interfaces/metacolumn.interface';
-import { MedicUserType } from '../../../shared/types/medic-user.type';
 import { UserModel } from '../../domain/user.model';
 import { UserExportDto } from '../../dtos/user-export.dto';
 
@@ -53,7 +49,7 @@ export class PageListComponent extends BaseComponent {
     { field: 'correo', title: 'Correo' },
   ];
 
-  constructor(private dialog: MatDialog, public utilsService: UtilsService) {
+  constructor(public utilsService: UtilsService) {
     super(utilsService);
     this.changePage(0);
   }
