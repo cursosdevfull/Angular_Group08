@@ -14,6 +14,8 @@ import { Paginator } from './shared/classes/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { IconService } from './services/icon.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
     MatDialogModule,
     MatSnackBarModule,
     MatBottomSheetModule,
+    HttpClientModule,
   ],
   providers: [
     { provide: MatPaginatorIntl, useClass: Paginator },
@@ -40,4 +43,6 @@ import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private iconService: IconService) {}
+}

@@ -19,6 +19,11 @@
   text-align: center;
 }
 
+.info mat-icon {
+  width: 100px;
+  height: 100px;
+}
+
 .login {
   background: white;
 }

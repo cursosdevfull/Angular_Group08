@@ -1,5 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import { MAT_BOTTOM_SHEET_DATA } from '@angular/material/bottom-sheet';
+import {
+  MatBottomSheetRef,
+  MAT_BOTTOM_SHEET_DATA,
+} from '@angular/material/bottom-sheet';
 import * as XLS from 'xlsx';
 
 declare var require: any;
@@ -16,7 +19,10 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 export class DownloadComponent implements OnInit {
   dataToExport!: any[];
 
-  constructor(@Inject(MAT_BOTTOM_SHEET_DATA) private data: any) {}
+  constructor(
+    @Inject(MAT_BOTTOM_SHEET_DATA) private data: any,
+    private reference: MatBottomSheetRef<DownloadComponent>
+  ) {}
 
   ngOnInit(): void {}
 
@@ -31,6 +37,7 @@ export class DownloadComponent implements OnInit {
         this.exportToPDF(action);
         break;
     }
+    this.reference.dismiss();
   }
 
   transformDataByDTO() {

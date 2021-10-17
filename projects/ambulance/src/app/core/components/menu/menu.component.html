@@ -1,42 +1,10 @@
 <mat-nav-list fxLayout="column" fxLayoutAlign="space-between">
   <div>
-    <mat-list-item>
-      <a routerLink="/dashboard">
+    <mat-list-item *ngFor="let menu of listMenu">
+      <a [routerLink]="menu.url">
         <button mat-icon-button>
-          <mat-icon>face</mat-icon>
-          <span *ngIf="expanded">Dashboard</span>
-        </button>
-      </a>
-    </mat-list-item>
-    <mat-list-item>
-      <a routerLink="/histories">
-        <button mat-icon-button>
-          <mat-icon>face</mat-icon>
-          <span *ngIf="expanded">Historias</span>
-        </button>
-      </a>
-    </mat-list-item>
-    <mat-list-item>
-      <a routerLink="/medics">
-        <button mat-icon-button>
-          <mat-icon>face</mat-icon>
-          <span *ngIf="expanded">Médicos</span>
-        </button>
-      </a>
-    </mat-list-item>
-    <mat-list-item>
-      <a routerLink="/drivers">
-        <button mat-icon-button>
-          <mat-icon>face</mat-icon>
-          <span *ngIf="expanded">Pilotos</span>
-        </button>
-      </a>
-    </mat-list-item>
-    <mat-list-item>
-      <a routerLink="/users">
-        <button mat-icon-button>
-          <mat-icon>face</mat-icon>
-          <span *ngIf="expanded">Usuarios</span>
+          <mat-icon [svgIcon]="menu.icon"></mat-icon>
+          <span *ngIf="expanded">{{ menu.title }}</span>
         </button>
       </a>
     </mat-list-item>
