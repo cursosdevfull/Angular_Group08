@@ -6,3 +6,7 @@
 h2 {
   text-align: center;
 }
+
+.recaptcha {
+  padding: 10px 0;
+}

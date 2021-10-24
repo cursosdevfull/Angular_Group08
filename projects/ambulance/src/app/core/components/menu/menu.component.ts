@@ -1,5 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { IMenu, MenuService } from '../../../services/menu.service';
+import { IMenu, MenuService } from '../../../helpers/services/menu.service';
 
 @Component({
   selector: 'amb-menu',

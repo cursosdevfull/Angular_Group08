@@ -19,10 +19,11 @@ import { environment } from '../../../../environments/environment';
 export class PaginatorComponent implements OnInit {
   @Output() onChangePage: EventEmitter<number> = new EventEmitter<number>();
   @Input() length!: number;
+  @Input() currentPage: number = 0;
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   pageSize = environment.PAGE_SIZE;
   arrayPages: number[] = [];
-  currentPage = 0;
+  // currentPage = 0;
 
   constructor() {}
 

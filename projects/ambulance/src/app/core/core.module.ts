@@ -13,6 +13,16 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MenuComponent } from './components/menu/menu.component';
 import { MatListModule } from '@angular/material/list';
 import { RouterModule } from '@angular/router';
+import { ReactiveFormsModule } from '@angular/forms';
+import {
+  RecaptchaModule,
+  RecaptchaFormsModule,
+  RecaptchaSettings,
+  RECAPTCHA_SETTINGS,
+} from 'ng-recaptcha';
+import { environment } from '../../environments/environment';
+
+const RECAPTCHA_V2_DUMMY_KEY = environment.keyRecaptcha;
 
 @NgModule({
   imports: [
@@ -26,6 +36,9 @@ import { RouterModule } from '@angular/router';
     MatMenuModule,
     MatListModule,
     RouterModule,
+    ReactiveFormsModule,
+    RecaptchaModule,
+    RecaptchaFormsModule,
   ],
   declarations: [
     PageLoginComponent,
@@ -39,6 +52,14 @@ import { RouterModule } from '@angular/router';
     MenuComponent,
     MatIconModule,
     FlexLayoutModule,
+  ],
+  providers: [
+    {
+      provide: RECAPTCHA_SETTINGS,
+      useValue: {
+        siteKey: RECAPTCHA_V2_DUMMY_KEY,
+      } as RecaptchaSettings,
+    },
   ],
 })
 export class CoreModule {}

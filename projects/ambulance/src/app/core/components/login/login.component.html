@@ -1,8 +1,14 @@
-<form fxLayout="column">
+<form fxLayout="column" [formGroup]="group">
   <h2>Credenciales</h2>
   <mat-form-field appearance="outline">
     <mat-label>Correo</mat-label>
-    <input type="text" matInput required placeholder="Ingrese su correo" />
+    <input
+      type="text"
+      matInput
+      required
+      placeholder="Ingrese su correo"
+      formControlName="correo"
+    />
     <mat-icon matSuffix>email</mat-icon>
   </mat-form-field>
   <mat-form-field appearance="outline">
@@ -12,6 +18,7 @@
       matInput
       required
       placeholder="Ingrese su contraseña"
+      formControlName="password"
     />
     <button
       mat-icon-button
@@ -22,5 +29,15 @@
       <mat-icon>{{ togglePassword ? "lock" : "lock_open" }}</mat-icon>
     </button>
   </mat-form-field>
-  <button mat-raised-button color="primary">Ingresar</button>
+  <div class="recaptcha">
+    <re-captcha formControlName="recaptchaReactive"></re-captcha>
+  </div>
+  <button
+    mat-raised-button
+    color="primary"
+    [disabled]="group.invalid"
+    (click)="login()"
+  >
+    Ingresar
+  </button>
 </form>
