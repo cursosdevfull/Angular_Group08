@@ -1,5 +1,10 @@
+<<<<<<< HEAD
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+=======
+import { Component, OnInit } from '@angular/core';
+import { AuthUseCase } from '../../application/auth.usecase';
+>>>>>>> 5319b892c69943880065e69adff8c9949cb9a1b1
 import { AuthModel } from '../../domain/auth.model';
 
 @Component({

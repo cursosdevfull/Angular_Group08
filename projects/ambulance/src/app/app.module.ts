@@ -17,8 +17,11 @@ import { IconService } from './helpers/services/icon.service';
 import { AuthInfraestructure } from './core/infraestructure/auth.infraestructure';
 import { AuthRepository } from './core/application/auth.repository';
 import { AuthUseCase } from './core/application/auth.usecase';
+<<<<<<< HEAD
 import { StorageInfraestructure } from './core/infraestructure/storage.infraestructure';
 import { StorageRepository } from './core/application/storage.repository';
+=======
+>>>>>>> 5319b892c69943880065e69adff8c9949cb9a1b1
 
 @NgModule({
   declarations: [AppComponent],
