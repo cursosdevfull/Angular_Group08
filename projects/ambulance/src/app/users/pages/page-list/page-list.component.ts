@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { UtilsService } from '../../../services/utils.service';
+import { UtilsService } from '../../../helpers/services/utils.service';
 import { BaseComponent } from '../../../shared/classes/baseComponent';
 import { KeyPadButton } from '../../../shared/interfaces/keybutton.interface';
 import { MetaDataColumn } from '../../../shared/interfaces/metacolumn.interface';

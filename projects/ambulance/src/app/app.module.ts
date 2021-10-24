@@ -1,10 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './app.component';
-import { InicioComponent } from './inicio/inicio.component';
-import { SubtituloComponent } from './subtitulo/subtitulo.component';
-import { ListaComponent } from './lista/lista.component';
-import { ItemComponent } from './item/item.component';
 import { CoreModule } from './core/core.module';
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -14,19 +10,16 @@ import { Paginator } from './shared/classes/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-import { IconService } from './services/icon.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ConfigModule } from './config/modules/config.module';
 import { configLayout } from './config/constants/config.constant';
+import { IconService } from './helpers/services/icon.service';
+import { AuthInfraestructure } from './core/infraestructure/auth.infraestructure';
+import { AuthRepository } from './core/application/auth.repository';
+import { AuthUseCase } from './core/application/auth.usecase';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    InicioComponent,
-    SubtituloComponent,
-    ListaComponent,
-    ItemComponent,
-  ],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     CoreModule,
@@ -41,6 +34,8 @@ import { configLayout } from './config/constants/config.constant';
   ],
   providers: [
     { provide: MatPaginatorIntl, useClass: Paginator },
+    { provide: AuthRepository, useClass: AuthInfraestructure },
+    AuthUseCase,
     // UtilsService,
     /*    { provide: UtilsService, useClass: UtilsService }, */
   ],

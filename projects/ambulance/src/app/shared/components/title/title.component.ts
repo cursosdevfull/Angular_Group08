@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IMenu, MenuService } from '../../../services/menu.service';
+import { IMenu, MenuService } from '../../../helpers/services/menu.service';
 
 @Component({
   selector: 'amb-title',

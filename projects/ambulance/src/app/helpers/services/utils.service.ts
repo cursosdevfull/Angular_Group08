@@ -3,10 +3,10 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
-import { ConfirmComponent } from '../shared/components/confirm/confirm.component';
-import { DownloadComponent } from '../shared/components/download/download.component';
-import { DtoExport } from '../shared/interfaces/dto-export.interface';
-import { OptionsExport } from '../shared/interfaces/option-export.interface';
+import { ConfirmComponent } from '../../shared/components/confirm/confirm.component';
+import { DownloadComponent } from '../../shared/components/download/download.component';
+import { DtoExport } from '../../shared/interfaces/dto-export.interface';
+import { OptionsExport } from '../../shared/interfaces/option-export.interface';
 
 @Injectable({
   providedIn: 'root',

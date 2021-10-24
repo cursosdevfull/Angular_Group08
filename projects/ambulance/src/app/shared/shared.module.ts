@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TitleComponent } from './components/title/title.component';
 import { ContainerComponent } from './components/container/container.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -25,6 +24,7 @@ import { ConfirmComponent } from './components/confirm/confirm.component';
 import { DownloadComponent } from './components/download/download.component';
 import { MatListModule } from '@angular/material/list';
 import { CdevTableModule } from 'cdev-table';
+import { TitleComponent } from './components/title/title.component';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
