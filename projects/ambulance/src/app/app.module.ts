@@ -21,6 +21,8 @@ import { StorageInfraestructure } from './core/infraestructure/storage.infraestr
 import { StorageRepository } from './core/application/storage.repository';
 import { MedicInfraestructure } from './medics/infraestructure/medic.infraestructure';
 import { MedicRepository } from './medics/application/medic.repostiory';
+import { DriverRepository } from './drivers/application/driver.repository';
+import { DriverInfraestructure } from './drivers/infraestructure/driver.infraestructure';
 
 @NgModule({
   declarations: [AppComponent],
@@ -40,6 +42,7 @@ import { MedicRepository } from './medics/application/medic.repostiory';
     { provide: MatPaginatorIntl, useClass: Paginator },
     { provide: AuthRepository, useClass: AuthInfraestructure },
     { provide: MedicRepository, useClass: MedicInfraestructure },
+    { provide: DriverRepository, useClass: DriverInfraestructure },
     { provide: StorageRepository, useClass: StorageInfraestructure },
     AuthUseCase,
   ],

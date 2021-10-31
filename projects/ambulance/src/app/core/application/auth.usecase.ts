@@ -42,4 +42,8 @@ export class AuthUseCase {
 
     return hasRoleAllowed;
   }
+
+  get accessToken(): string {
+    return '' + this.storage.getStorage('accessToken');
+  }
 }
