@@ -12,9 +12,9 @@ import { UserExportDto } from '../../dtos/user-export.dto';
   templateUrl: './page-list.component.html',
   styleUrls: ['./page-list.component.css'],
 })
-export class PageListComponent extends BaseComponent {
+export class PageListComponent {
   // info: MedicUserType[] = [];
-  records: Partial<UserModel>[] = [
+  /*  records: Partial<UserModel>[] = [
     { id: 1, nombre: 'John', correo: 'john@correo.com' },
     { id: 2, nombre: 'Javier', correo: 'javier@correo.com' },
     { id: 3, nombre: 'Carmela', correo: 'carmela@correo.com' },
@@ -74,5 +74,5 @@ export class PageListComponent extends BaseComponent {
   openForm(row: any = null) {
     const options = { panelClass: 'panel-container' };
     this.utilsService.showModal(FormComponent, options);
-  }
+  } */
 }

@@ -2,29 +2,33 @@ import { environment } from 'projects/ambulance/src/environments/environment';
 import { Observable } from 'rxjs';
 import { UtilsService } from '../../helpers/services/utils.service';
 import { MetaDataColumn } from '../interfaces/metacolumn.interface';
+import { Page } from '../interfaces/page.interface';
+import { UseCase } from '../interfaces/usecase.interface';
 
-export abstract class BaseComponent {
-  abstract records: any[];
-  abstract totalRecords: number;
+export abstract class BaseComponent<T, U extends UseCase<T>> {
   abstract metaDataColumns: MetaDataColumn[];
-  data: any[] = [];
-  utilsService: UtilsService;
+  protected utilsService: UtilsService;
+  protected useCase: U;
+
+  totalRecords: number = 0;
+  data: T[] = [];
   currentPage: number = 0;
 
-  constructor(utilsService: UtilsService) {
+  constructor(usecase: U, utilsService: UtilsService) {
     this.utilsService = utilsService;
+    this.useCase = usecase;
+    this.changePage(0);
   }
 
   changePage(page: number) {
-    this.currentPage = page;
-    const pageSize = environment.PAGE_SIZE;
-    const skip = pageSize * page;
-    this.data = this.records.slice(skip, skip + pageSize);
-    this.totalRecords = this.records.length;
+    this.useCase.getByPage(page).subscribe((response: Page<T>) => {
+      this.data = response.records;
+      this.totalRecords = response.totalRecords;
+    });
   }
 
   delete(id: number, textAdditional: string = '') {
-    const result: Observable<string> = this.utilsService.confirm(
+    /* const result: Observable<string> = this.utilsService.confirm(
       `¿Está seguro de querer eliminar a "${textAdditional}"?`
     );
     result.subscribe((res) => {
@@ -41,13 +45,14 @@ export abstract class BaseComponent {
         this.changePage(this.currentPage === 0 ? 0 : this.currentPage - 1);
       }
       this.utilsService.showMessage('Eliminado correctamente');
-    });
+    }); */
   }
 
   verifyExistsDataInPage(page: number): boolean {
-    const pageSize = environment.PAGE_SIZE;
+    return true;
+    /*     const pageSize = environment.PAGE_SIZE;
     const skip = pageSize * page;
-    return !!this.records.slice(skip, skip + pageSize).length;
+    return !!this.records.slice(skip, skip + pageSize).length; */
   }
 
   abstract openForm(row: any): void;

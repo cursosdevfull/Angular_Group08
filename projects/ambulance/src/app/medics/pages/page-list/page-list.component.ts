@@ -1,27 +1,34 @@
 import { Component, OnInit } from '@angular/core';
+import { UtilsService } from '../../../helpers/services/utils.service';
+import { BaseComponent } from '../../../shared/classes/baseComponent';
 import { MetaDataColumn } from '../../../shared/interfaces/metacolumn.interface';
+import { MedicUseCase } from '../../application/medic.usecase';
+import { MedicModel } from '../../domain/medic.model';
 
 @Component({
   selector: 'amb-page-list',
   templateUrl: './page-list.component.html',
   styleUrls: ['./page-list.component.css'],
 })
-export class PageListComponent implements OnInit {
-  data: any[] = [
-    { id: 1, name: 'John', cmp: '24568' },
-    { id: 2, name: 'Jane', cmp: '12548' },
-    { id: 3, name: 'Jack', cmp: '89523' },
-  ];
+export class PageListComponent extends BaseComponent<MedicModel, MedicUseCase> {
+  data: MedicModel[] = [];
+  totalRecords: number = 0;
+
+  openForm(row: any): void {
+    throw new Error('Method not implemented.');
+  }
 
   metaDataColumns: MetaDataColumn[] = [
     { field: 'id', title: 'ID' },
-    { field: 'name', title: 'Nombre' },
-    { field: 'cmp', title: 'Número de colegiatura' },
+    { field: 'nombre', title: 'Nombre' },
+    { field: 'apellido', title: 'Apellido' },
+    { field: 'cmp', title: 'CMP' },
   ];
 
-  // listFields: string[] = ['id', 'name', 'cmp'];
-
-  constructor() {}
-
-  ngOnInit(): void {}
+  constructor(
+    protected medic: MedicUseCase,
+    protected utilsService: UtilsService
+  ) {
+    super(medic, utilsService);
+  }
 }

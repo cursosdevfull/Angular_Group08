@@ -19,6 +19,8 @@ import { AuthRepository } from './core/application/auth.repository';
 import { AuthUseCase } from './core/application/auth.usecase';
 import { StorageInfraestructure } from './core/infraestructure/storage.infraestructure';
 import { StorageRepository } from './core/application/storage.repository';
+import { MedicInfraestructure } from './medics/infraestructure/medic.infraestructure';
+import { MedicRepository } from './medics/application/medic.repostiory';
 
 @NgModule({
   declarations: [AppComponent],
@@ -37,6 +39,7 @@ import { StorageRepository } from './core/application/storage.repository';
   providers: [
     { provide: MatPaginatorIntl, useClass: Paginator },
     { provide: AuthRepository, useClass: AuthInfraestructure },
+    { provide: MedicRepository, useClass: MedicInfraestructure },
     { provide: StorageRepository, useClass: StorageInfraestructure },
     AuthUseCase,
   ],
