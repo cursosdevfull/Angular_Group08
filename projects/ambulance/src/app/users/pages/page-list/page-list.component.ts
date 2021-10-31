@@ -3,6 +3,7 @@ import { UtilsService } from '../../../helpers/services/utils.service';
 import { BaseComponent } from '../../../shared/classes/baseComponent';
 import { KeyPadButton } from '../../../shared/interfaces/keybutton.interface';
 import { MetaDataColumn } from '../../../shared/interfaces/metacolumn.interface';
+import { UserUseCase } from '../../application/user.usecase';
 import { FormComponent } from '../../components/form/form.component';
 import { UserModel } from '../../domain/user.model';
 import { UserExportDto } from '../../dtos/user-export.dto';
@@ -12,9 +13,29 @@ import { UserExportDto } from '../../dtos/user-export.dto';
   templateUrl: './page-list.component.html',
   styleUrls: ['./page-list.component.css'],
 })
-export class PageListComponent {
-  // info: MedicUserType[] = [];
-  /*  records: Partial<UserModel>[] = [
+export class PageListComponent extends BaseComponent<UserModel, UserUseCase> {
+  data: UserModel[] = [];
+  totalRecords: number = 0;
+
+  openForm(row: any): void {
+    throw new Error('Method not implemented.');
+  }
+
+  metaDataColumns: MetaDataColumn[] = [
+    { field: 'id', title: 'ID' },
+    { field: 'nombre', title: 'Nombre' },
+    { field: 'correo', title: 'Correo' },
+  ];
+
+  constructor(
+    protected user: UserUseCase,
+    protected utilsService: UtilsService
+  ) {
+    super(user, utilsService);
+  }
+}
+// info: MedicUserType[] = [];
+/*  records: Partial<UserModel>[] = [
     { id: 1, nombre: 'John', correo: 'john@correo.com' },
     { id: 2, nombre: 'Javier', correo: 'javier@correo.com' },
     { id: 3, nombre: 'Carmela', correo: 'carmela@correo.com' },
@@ -75,4 +96,4 @@ export class PageListComponent {
     const options = { panelClass: 'panel-container' };
     this.utilsService.showModal(FormComponent, options);
   } */
-}
+//}

@@ -1,4 +1,15 @@
 <amb-title></amb-title>
+<amb-container>
+  <perfect-scrollbar class="heightMaxPerfectScrollbar">
+    <cdev-table [data]="data" [metaDataColumns]="metaDataColumns"> </cdev-table>
+  </perfect-scrollbar>
+  <amb-paginator
+    (onChangePage)="changePage($event)"
+    [length]="totalRecords"
+    [currentPage]="currentPage"
+  ></amb-paginator>
+</amb-container>
+
 <!-- <amb-container>
   <perfect-scrollbar class="heightMaxPerfectScrollbar">
     <cdev-table [data]="data" [metaDataColumns]="metaDataColumns">

@@ -10,7 +10,7 @@ import { Paginator } from './shared/classes/paginator';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ConfigModule } from './config/modules/config.module';
 import { configLayout } from './config/constants/config.constant';
 import { IconService } from './helpers/services/icon.service';
@@ -23,6 +23,9 @@ import { MedicInfraestructure } from './medics/infraestructure/medic.infraestruc
 import { MedicRepository } from './medics/application/medic.repostiory';
 import { DriverRepository } from './drivers/application/driver.repository';
 import { DriverInfraestructure } from './drivers/infraestructure/driver.infraestructure';
+import { TokenInterceptor } from './shared/interceptors/token.interceptor';
+import { UserRepository } from './users/application/user.repository';
+import { UserInfraestructure } from './users/infraestructure/user.infraestructure';
 
 @NgModule({
   declarations: [AppComponent],
@@ -43,7 +46,9 @@ import { DriverInfraestructure } from './drivers/infraestructure/driver.infraest
     { provide: AuthRepository, useClass: AuthInfraestructure },
     { provide: MedicRepository, useClass: MedicInfraestructure },
     { provide: DriverRepository, useClass: DriverInfraestructure },
+    { provide: UserRepository, useClass: UserInfraestructure },
     { provide: StorageRepository, useClass: StorageInfraestructure },
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true },
     AuthUseCase,
   ],
   bootstrap: [AppComponent],

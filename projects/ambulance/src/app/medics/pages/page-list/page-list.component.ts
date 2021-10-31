@@ -11,9 +11,6 @@ import { MedicModel } from '../../domain/medic.model';
   styleUrls: ['./page-list.component.css'],
 })
 export class PageListComponent extends BaseComponent<MedicModel, MedicUseCase> {
-  data: MedicModel[] = [];
-  totalRecords: number = 0;
-
   openForm(row: any): void {
     throw new Error('Method not implemented.');
   }
