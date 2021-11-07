@@ -4,4 +4,5 @@ import { Tokens } from '../../helpers/interfaces/tokens';
 
 export abstract class AuthRepository {
   abstract login(auth: AuthModel): Observable<Tokens>;
+  abstract getNewAccessToken(refreshToken: string): Observable<Tokens>;
 }

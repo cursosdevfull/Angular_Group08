@@ -1,0 +1,22 @@
+version: "0.2"
+phases:
+  install:
+    runtime-version:
+      nodejs: 12
+  pre_build:
+    commands:
+      - echo "Instalando librerías"
+      - npm install
+  build:
+    commands:
+      - npm run build:prod
+  post_build:
+    commands:
+      - aws s3 rm s3://angular08 --recursive
+      - aws s3 sync ./dist/ambulance s3://angular08 --acl 'public-read' --delete
+      - aws cloudfront create-invalidation --distribution-id EHKUGTDGGQ6SZ --paths '/*'
+artifacts:
+  name: "BuildOutput"
+  base-directory: "dist/ambulance"
+  files:
+    - "**/*"

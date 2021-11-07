@@ -54,6 +54,27 @@
               ],
               "outputHashing": "all"
             },
+            "quality": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/ambulance/src/environments/environment.ts",
+                  "with": "projects/ambulance/src/environments/environment.qas.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -94,9 +115,7 @@
               "projects/ambulance/src/favicon.ico",
               "projects/ambulance/src/assets"
             ],
-            "styles": [
-              "projects/ambulance/src/styles.css"
-            ],
+            "styles": ["projects/ambulance/src/styles.css"],
             "scripts": []
           }
         }
