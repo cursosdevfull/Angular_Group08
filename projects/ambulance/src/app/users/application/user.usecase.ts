@@ -14,4 +14,8 @@ export class UserUseCase implements UseCase<UserModel> {
   getByPage(page: number): Observable<Page<UserModel>> {
     return this.user.getByPage(page);
   }
+
+  delete(id: number): Observable<UserModel> {
+    return this.user.delete(id);
+  }
 }

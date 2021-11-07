@@ -24,4 +24,10 @@ export class DriverInfraestructure extends DriverRepository {
       driver
     );
   }
+
+  delete(id: number): Observable<DriverModel> {
+    return this.http.delete<DriverModel>(
+      `${environment.API_URL}/drivers/${id}`
+    );
+  }
 }

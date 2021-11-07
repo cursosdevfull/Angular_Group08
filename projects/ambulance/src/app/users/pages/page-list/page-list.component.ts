@@ -16,6 +16,20 @@ import { UserExportDto } from '../../dtos/user-export.dto';
 export class PageListComponent extends BaseComponent<UserModel, UserUseCase> {
   data: UserModel[] = [];
   totalRecords: number = 0;
+  keypadButtons: KeyPadButton[] = [
+    {
+      icon: 'cloud_download',
+      tooltip: 'DESCARGAR',
+      color: 'accent',
+      action: 'DOWNLOAD',
+    },
+    {
+      icon: 'add',
+      tooltip: 'AGREGAR',
+      color: 'primary',
+      action: 'NEW',
+    },
+  ];
 
   openForm(row: any): void {
     throw new Error('Method not implemented.');
@@ -32,6 +46,23 @@ export class PageListComponent extends BaseComponent<UserModel, UserUseCase> {
     protected utilsService: UtilsService
   ) {
     super(user, utilsService);
+  }
+
+  doAction(action: string) {
+    switch (action) {
+      case 'DOWNLOAD':
+        /*  const dto = new UserExportDto();
+        this.utilsService.showBottomSheet(
+          'Lista de usuarios',
+          'users',
+          this.records,
+          dto
+        ); */
+        break;
+      case 'NEW':
+        // this.openForm();
+        break;
+    }
   }
 }
 // info: MedicUserType[] = [];

@@ -21,4 +21,8 @@ export class UserInfraestructure extends UserRepository {
   insert(user: Partial<UserModel>): Observable<UserModel> {
     return this.http.post<UserModel>(`${environment.API_URL}/users`, user);
   }
+
+  delete(id: number): Observable<UserModel> {
+    return this.http.delete<UserModel>(`${environment.API_URL}/users/${id}`);
+  }
 }

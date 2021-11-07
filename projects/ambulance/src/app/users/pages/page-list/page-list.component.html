@@ -1,7 +1,29 @@
 <amb-title></amb-title>
 <amb-container>
   <perfect-scrollbar class="heightMaxPerfectScrollbar">
-    <cdev-table [data]="data" [metaDataColumns]="metaDataColumns"> </cdev-table>
+    <cdev-table [data]="data" [metaDataColumns]="metaDataColumns">
+      <ng-container matColumnDef="actions">
+        <th mat-header-cell *matHeaderCellDef></th>
+        <td mat-cell *matCellDef="let row" class="align-right">
+          <button
+            mat-icon-button
+            color="primary"
+            (click)="openForm(row)"
+            matTooltip="EDITAR"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button
+            mat-icon-button
+            color="accent"
+            (click)="delete(row.id)"
+            matTooltip="ELIMINAR"
+          >
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+    </cdev-table>
   </perfect-scrollbar>
   <amb-paginator
     (onChangePage)="changePage($event)"
@@ -9,6 +31,10 @@
     [currentPage]="currentPage"
   ></amb-paginator>
 </amb-container>
+<amb-keypad
+  [keypadButtons]="keypadButtons"
+  (onClick)="doAction($event)"
+></amb-keypad>
 
 <!-- <amb-container>
   <perfect-scrollbar class="heightMaxPerfectScrollbar">

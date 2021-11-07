@@ -14,4 +14,8 @@ export class MedicUseCase implements UseCase<MedicModel> {
   getByPage(page: number): Observable<Page<MedicModel>> {
     return this.medic.getByPage(page);
   }
+
+  delete(id: number) {
+    return this.medic.delete(id);
+  }
 }

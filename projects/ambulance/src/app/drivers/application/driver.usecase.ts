@@ -14,4 +14,8 @@ export class DriverUseCase implements UseCase<DriverModel> {
   getByPage(page: number): Observable<Page<DriverModel>> {
     return this.driver.getByPage(page);
   }
+
+  delete(id: number): Observable<DriverModel> {
+    return this.driver.delete(id);
+  }
 }

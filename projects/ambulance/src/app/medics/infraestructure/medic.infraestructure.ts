@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'projects/ambulance/src/environments/environment';
 import { Observable } from 'rxjs';
@@ -20,5 +20,9 @@ export class MedicInfraestructure extends MedicRepository {
 
   insert(medic: Partial<MedicModel>): Observable<MedicModel> {
     return this.http.post<MedicModel>(`${environment.API_URL}/medics`, medic);
+  }
+
+  delete(id: number): Observable<MedicModel> {
+    return this.http.delete<MedicModel>(`${environment.API_URL}/medics/${id}`);
   }
 }

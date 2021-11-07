@@ -3,4 +3,5 @@ import { Page } from './page.interface';
 
 export interface UseCase<T> {
   getByPage(page: number): Observable<Page<T>>;
+  delete(id: number): Observable<T>;
 }

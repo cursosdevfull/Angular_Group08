@@ -27,25 +27,29 @@ export abstract class BaseComponent<T, U extends UseCase<T>> {
     });
   }
 
-  delete(id: number, textAdditional: string = '') {
-    /* const result: Observable<string> = this.utilsService.confirm(
-      `¿Está seguro de querer eliminar a "${textAdditional}"?`
+  delete(id: number) {
+    const result: Observable<string> = this.utilsService.confirm(
+      `¿Está seguro de querer eliminar?`
     );
     result.subscribe((res) => {
       if (!res) {
         return;
       }
 
-      const position = this.records.findIndex((el) => el.id === id);
+      this.useCase.delete(id).subscribe(() => {
+        this.changePage(this.currentPage);
+        this.utilsService.showMessage('Eliminado correctamente');
+      });
+
+      /*       const position = this.records.findIndex((el) => el.id === id);
       this.records.splice(position, 1);
       const existsDataInPage = this.verifyExistsDataInPage(this.currentPage);
       if (existsDataInPage) {
         this.changePage(this.currentPage);
       } else {
         this.changePage(this.currentPage === 0 ? 0 : this.currentPage - 1);
-      }
-      this.utilsService.showMessage('Eliminado correctamente');
-    }); */
+      } */
+    });
   }
 
   verifyExistsDataInPage(page: number): boolean {
