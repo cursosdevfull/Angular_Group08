@@ -18,4 +18,8 @@ export class DriverUseCase implements UseCase<DriverModel> {
   delete(id: number): Observable<DriverModel> {
     return this.driver.delete(id);
   }
+
+  list(): Observable<DriverModel[]> {
+    return this.driver.list();
+  }
 }

@@ -1,12 +1,14 @@
 import { environment } from 'projects/ambulance/src/environments/environment';
 import { Observable } from 'rxjs';
 import { UtilsService } from '../../helpers/services/utils.service';
+import { KeyPadButton } from '../interfaces/keybutton.interface';
 import { MetaDataColumn } from '../interfaces/metacolumn.interface';
 import { Page } from '../interfaces/page.interface';
 import { UseCase } from '../interfaces/usecase.interface';
 
 export abstract class BaseComponent<T, U extends UseCase<T>> {
   abstract metaDataColumns: MetaDataColumn[];
+  abstract keypadButtons: KeyPadButton[];
   protected utilsService: UtilsService;
   protected useCase: U;
 
@@ -60,4 +62,5 @@ export abstract class BaseComponent<T, U extends UseCase<T>> {
   }
 
   abstract openForm(row: any): void;
+  abstract doAction(action: string): void;
 }

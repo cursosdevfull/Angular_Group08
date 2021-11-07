@@ -6,4 +6,5 @@ export abstract class MedicRepository {
   abstract getByPage(page: number): Observable<Page<MedicModel>>;
   abstract insert(medic: Partial<MedicModel>): Observable<MedicModel>;
   abstract delete(id: number): Observable<MedicModel>;
+  abstract list(): Observable<MedicModel[]>;
 }

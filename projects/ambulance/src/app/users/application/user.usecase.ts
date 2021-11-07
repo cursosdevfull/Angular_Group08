@@ -18,4 +18,8 @@ export class UserUseCase implements UseCase<UserModel> {
   delete(id: number): Observable<UserModel> {
     return this.user.delete(id);
   }
+
+  list(): Observable<UserModel[]> {
+    return this.user.list();
+  }
 }

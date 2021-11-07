@@ -25,4 +25,8 @@ export class UserInfraestructure extends UserRepository {
   delete(id: number): Observable<UserModel> {
     return this.http.delete<UserModel>(`${environment.API_URL}/users/${id}`);
   }
+
+  list(): Observable<UserModel[]> {
+    return this.http.get<UserModel[]>(`${environment.API_URL}/users`);
+  }
 }

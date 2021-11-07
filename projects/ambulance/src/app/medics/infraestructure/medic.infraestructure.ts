@@ -25,4 +25,8 @@ export class MedicInfraestructure extends MedicRepository {
   delete(id: number): Observable<MedicModel> {
     return this.http.delete<MedicModel>(`${environment.API_URL}/medics/${id}`);
   }
+
+  list(): Observable<MedicModel[]> {
+    return this.http.get<MedicModel[]>(`${environment.API_URL}/medics`);
+  }
 }

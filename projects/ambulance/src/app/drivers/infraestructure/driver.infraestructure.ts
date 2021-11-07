@@ -30,4 +30,8 @@ export class DriverInfraestructure extends DriverRepository {
       `${environment.API_URL}/drivers/${id}`
     );
   }
+
+  list(): Observable<DriverModel[]> {
+    return this.http.get<DriverModel[]>(`${environment.API_URL}/drivers`);
+  }
 }

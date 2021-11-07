@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilsService } from '../../../helpers/services/utils.service';
 import { BaseComponent } from '../../../shared/classes/baseComponent';
+import { KeyPadButton } from '../../../shared/interfaces/keybutton.interface';
 import { MetaDataColumn } from '../../../shared/interfaces/metacolumn.interface';
 import { DriverUseCase } from '../../application/driver.usecase';
 import { DriverModel } from '../../domain/driver.model';
@@ -16,6 +17,10 @@ export class PageListComponent extends BaseComponent<
 > {
   data: DriverModel[] = [];
   totalRecords: number = 0;
+  keypadButtons: KeyPadButton[] = [];
+  doAction(action: string): void {
+    throw new Error('Method not implemented.');
+  }
 
   openForm(row: any): void {
     throw new Error('Method not implemented.');

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UtilsService } from '../../../helpers/services/utils.service';
 import { BaseComponent } from '../../../shared/classes/baseComponent';
+import { KeyPadButton } from '../../../shared/interfaces/keybutton.interface';
 import { MetaDataColumn } from '../../../shared/interfaces/metacolumn.interface';
 import { MedicUseCase } from '../../application/medic.usecase';
 import { MedicModel } from '../../domain/medic.model';
@@ -11,6 +12,10 @@ import { MedicModel } from '../../domain/medic.model';
   styleUrls: ['./page-list.component.css'],
 })
 export class PageListComponent extends BaseComponent<MedicModel, MedicUseCase> {
+  keypadButtons: KeyPadButton[] = [];
+  doAction(action: string): void {
+    throw new Error('Method not implemented.');
+  }
   openForm(row: any): void {
     throw new Error('Method not implemented.');
   }

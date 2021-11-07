@@ -18,4 +18,8 @@ export class MedicUseCase implements UseCase<MedicModel> {
   delete(id: number) {
     return this.medic.delete(id);
   }
+
+  list() {
+    return this.medic.list();
+  }
 }

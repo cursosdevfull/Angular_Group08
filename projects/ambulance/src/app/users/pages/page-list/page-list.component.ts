@@ -51,8 +51,9 @@ export class PageListComponent extends BaseComponent<UserModel, UserUseCase> {
   doAction(action: string) {
     switch (action) {
       case 'DOWNLOAD':
-        /*  const dto = new UserExportDto();
-        this.utilsService.showBottomSheet(
+        const dto = new UserExportDto();
+
+        /*  this.utilsService.showBottomSheet(
           'Lista de usuarios',
           'users',
           this.records,
