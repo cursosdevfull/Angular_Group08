@@ -52,16 +52,17 @@ export class PageListComponent extends BaseComponent<UserModel, UserUseCase> {
     switch (action) {
       case 'DOWNLOAD':
         const dto = new UserExportDto();
-
-        /*  this.utilsService.showBottomSheet(
-          'Lista de usuarios',
-          'users',
-          this.records,
-          dto
-        ); */
+        this.user.list().subscribe((response: UserModel[]) => {
+          this.utilsService.showBottomSheet(
+            'Lista de usuarios',
+            'users',
+            response,
+            dto
+          );
+        });
         break;
       case 'NEW':
-        // this.openForm();
+        //this.openForm();
         break;
     }
   }

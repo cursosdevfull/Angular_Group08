@@ -5,6 +5,7 @@ import { KeyPadButton } from '../../../shared/interfaces/keybutton.interface';
 import { MetaDataColumn } from '../../../shared/interfaces/metacolumn.interface';
 import { DriverUseCase } from '../../application/driver.usecase';
 import { DriverModel } from '../../domain/driver.model';
+import { DriverExportDto } from '../../dtos/driver-export.dto';
 
 @Component({
   selector: 'amb-page-list',
@@ -17,9 +18,37 @@ export class PageListComponent extends BaseComponent<
 > {
   data: DriverModel[] = [];
   totalRecords: number = 0;
-  keypadButtons: KeyPadButton[] = [];
-  doAction(action: string): void {
-    throw new Error('Method not implemented.');
+  keypadButtons: KeyPadButton[] = [
+    {
+      icon: 'cloud_download',
+      tooltip: 'DESCARGAR',
+      color: 'accent',
+      action: 'DOWNLOAD',
+    },
+    {
+      icon: 'add',
+      tooltip: 'AGREGAR',
+      color: 'primary',
+      action: 'NEW',
+    },
+  ];
+  doAction(action: string) {
+    switch (action) {
+      case 'DOWNLOAD':
+        const dto = new DriverExportDto();
+        this.driver.list().subscribe((response: DriverModel[]) => {
+          this.utilsService.showBottomSheet(
+            'Lista de pilotos',
+            'drivers',
+            response,
+            dto
+          );
+        });
+        break;
+      case 'NEW':
+        //this.openForm();
+        break;
+    }
   }
 
   openForm(row: any): void {

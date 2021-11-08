@@ -66,4 +66,8 @@ export class AuthUseCase {
   setFieldValue(field: string, value: string) {
     this.storage.setStorage(field, value);
   }
+
+  getRoles() {
+    return this.storage.getFieldInToken('roles');
+  }
 }

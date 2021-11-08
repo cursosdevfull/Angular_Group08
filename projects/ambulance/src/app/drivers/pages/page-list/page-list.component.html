@@ -31,3 +31,7 @@
     [currentPage]="currentPage"
   ></amb-paginator>
 </amb-container>
+<amb-keypad
+  [keypadButtons]="keypadButtons"
+  (onClick)="doAction($event)"
+></amb-keypad>

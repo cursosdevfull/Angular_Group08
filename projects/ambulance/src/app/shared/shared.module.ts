@@ -25,6 +25,7 @@ import { DownloadComponent } from './components/download/download.component';
 import { MatListModule } from '@angular/material/list';
 import { CdevTableModule } from 'cdev-table';
 import { TitleComponent } from './components/title/title.component';
+import { RolesAllowedDirective } from './directives/roles-allowed.directive';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -39,6 +40,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     KeypadComponent,
     ConfirmComponent,
     DownloadComponent,
+    RolesAllowedDirective,
   ],
   imports: [
     CommonModule,
@@ -69,6 +71,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     ConfirmComponent,
     MatDialogModule,
     CdevTableModule,
+    RolesAllowedDirective,
   ],
   providers: [
     {
