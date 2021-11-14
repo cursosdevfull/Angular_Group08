@@ -29,4 +29,8 @@ export class UserInfraestructure extends UserRepository {
   list(): Observable<UserModel[]> {
     return this.http.get<UserModel[]>(`${environment.API_URL}/users`);
   }
+
+  update(id: number, user: Partial<UserModel>) {
+    return this.http.put<UserModel>(`${environment.API_URL}/users/${id}`, user);
+  }
 }

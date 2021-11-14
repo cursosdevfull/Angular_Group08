@@ -7,4 +7,8 @@ export abstract class MedicRepository {
   abstract insert(medic: Partial<MedicModel>): Observable<MedicModel>;
   abstract delete(id: number): Observable<MedicModel>;
   abstract list(): Observable<MedicModel[]>;
+  abstract update(
+    id: number,
+    medic: Partial<MedicModel>
+  ): Observable<MedicModel>;
 }

@@ -22,4 +22,12 @@ export class DriverUseCase implements UseCase<DriverModel> {
   list(): Observable<DriverModel[]> {
     return this.driver.list();
   }
+
+  update(id: number, driver: Partial<DriverModel>): Observable<DriverModel> {
+    return this.driver.update(id, driver);
+  }
+
+  insert(driver: Partial<DriverModel>): Observable<DriverModel> {
+    return this.driver.insert(driver);
+  }
 }

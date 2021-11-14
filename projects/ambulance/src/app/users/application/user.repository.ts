@@ -7,4 +7,5 @@ export abstract class UserRepository {
   abstract insert(user: Partial<UserModel>): Observable<UserModel>;
   abstract delete(id: number): Observable<UserModel>;
   abstract list(): Observable<UserModel[]>;
+  abstract update(id: number, user: Partial<UserModel>): Observable<UserModel>;
 }

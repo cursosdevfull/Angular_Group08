@@ -7,6 +7,7 @@ import { UserUseCase } from '../../application/user.usecase';
 import { FormComponent } from '../../components/form/form.component';
 import { UserModel } from '../../domain/user.model';
 import { UserExportDto } from '../../dtos/user-export.dto';
+import { MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'amb-page-list',
@@ -45,8 +46,31 @@ export class PageListComponent extends BaseComponent<UserModel, UserUseCase> {
   }
 
   openForm(row: any = null) {
-    const options = { panelClass: 'panel-container', disableClose: true };
-    this.utilsService.showModal(FormComponent, options);
+    const options = {
+      panelClass: 'panel-container',
+      disableClose: true,
+      data: row,
+    };
+    const reference: MatDialogRef<FormComponent> = this.utilsService.showModal(
+      FormComponent,
+      options
+    );
+
+    reference.afterClosed().subscribe((response) => {
+      if (!response) {
+        return;
+      }
+
+      if (response.id) {
+        const user = { ...response };
+        delete user.id;
+        if (!user.password.trim()) {
+          delete user.password;
+        }
+
+        this.user.update(response.id, user).subscribe(() => {});
+      }
+    });
   }
 
   doAction(action: string) {

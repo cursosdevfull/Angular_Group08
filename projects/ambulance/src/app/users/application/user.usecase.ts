@@ -22,4 +22,12 @@ export class UserUseCase implements UseCase<UserModel> {
   list(): Observable<UserModel[]> {
     return this.user.list();
   }
+
+  update(id: number, user: Partial<UserModel>): Observable<UserModel> {
+    return this.user.update(id, user);
+  }
+
+  insert(user: Partial<UserModel>): Observable<UserModel> {
+    return this.user.insert(user);
+  }
 }

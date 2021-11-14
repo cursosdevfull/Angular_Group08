@@ -29,4 +29,11 @@ export class MedicInfraestructure extends MedicRepository {
   list(): Observable<MedicModel[]> {
     return this.http.get<MedicModel[]>(`${environment.API_URL}/medics`);
   }
+
+  update(id: number, medic: Partial<MedicModel>) {
+    return this.http.put<MedicModel>(
+      `${environment.API_URL}/medics/${id}`,
+      medic
+    );
+  }
 }

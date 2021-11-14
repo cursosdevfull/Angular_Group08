@@ -1,34 +1,42 @@
 <mat-toolbar fxLayout fxLayoutAlign="space-between center">
-  <h3>Editar</h3>
+  <h3>{{ title }}</h3>
   <button mat-icon-button mat-dialog-close>
     <mat-icon>close</mat-icon>
   </button>
 </mat-toolbar>
 
 <mat-dialog-content>
-  <form fxLayout="column">
+  <form fxLayout="column" [formGroup]="group">
     <mat-form-field appearance="outline">
       <mat-label>Nombre</mat-label>
-      <input type="text" matInput />
+      <input type="text" matInput formControlName="nombre" required />
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Correo</mat-label>
-      <input type="text" matInput />
+      <input type="text" matInput formControlName="correo" required />
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Password</mat-label>
-      <input type="password" matInput />
+      <input type="password" matInput formControlName="password" />
     </mat-form-field>
     <mat-form-field appearance="outline">
       <mat-label>Roles</mat-label>
-      <mat-select multiple>
+      <mat-select multiple formControlName="roles" required>
         <mat-option *ngFor="let role of roles" [value]="role.id">
           {{ role.name }}
         </mat-option>
       </mat-select>
     </mat-form-field>
     <div fxLayout fxLayoutAlign="end" fxLayoutGap="10px">
-      <button mat-raised-button color="primary" type="button">Grabar</button>
+      <button
+        mat-raised-button
+        color="primary"
+        type="button"
+        [disabled]="group.invalid"
+        (click)="save()"
+      >
+        Grabar
+      </button>
       <button mat-button type="button" color="primary" mat-dialog-close>
         Cancelar
       </button>

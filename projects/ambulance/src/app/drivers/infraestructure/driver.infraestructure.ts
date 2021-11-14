@@ -8,6 +8,12 @@ import { DriverModel } from '../domain/driver.model';
 
 @Injectable()
 export class DriverInfraestructure extends DriverRepository {
+  update(id: number, driver: Partial<DriverModel>): Observable<DriverModel> {
+    return this.http.put<DriverModel>(
+      `${environment.API_URL}/drivers/${id}`,
+      driver
+    );
+  }
   constructor(private http: HttpClient) {
     super();
   }
