@@ -33,7 +33,21 @@ export class FormComponent implements OnInit {
     this.group = new FormGroup({
       id: new FormControl(this.data?.id),
       nombre: new FormControl(this.data?.nombre, Validators.required),
+      segundo_nombre: new FormControl(
+        this.data?.segundo_nombre,
+        Validators.required
+      ),
+      apellido: new FormControl(this.data?.apellido, Validators.required),
+      cmp: new FormControl(this.data?.cmp, Validators.required),
+      dni: new FormControl(this.data?.dni, Validators.required),
+      correo: new FormControl(this.data?.correo, Validators.required),
     });
+
+    if (this.data) {
+      this.group.addControl('foto', new FormControl(null));
+    } else {
+      this.group.addControl('foto', new FormControl(null, Validators.required));
+    }
   }
 
   save() {
