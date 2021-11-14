@@ -24,6 +24,7 @@ export abstract class BaseComponent<T, U extends UseCase<T>> {
 
   changePage(page: number) {
     this.useCase.getByPage(page).subscribe((response: Page<T>) => {
+      this.currentPage = page;
       this.data = response.records;
       this.totalRecords = response.totalRecords;
     });
@@ -39,7 +40,11 @@ export abstract class BaseComponent<T, U extends UseCase<T>> {
       }
 
       this.useCase.delete(id).subscribe(() => {
-        this.changePage(this.currentPage);
+        if (this.data.length > 1) {
+          this.changePage(this.currentPage);
+        } else {
+          this.changePage(this.currentPage === 0 ? 0 : this.currentPage - 1);
+        }
         this.utilsService.showMessage('Eliminado correctamente');
       });
 

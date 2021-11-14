@@ -68,7 +68,17 @@ export class PageListComponent extends BaseComponent<UserModel, UserUseCase> {
           delete user.password;
         }
 
-        this.user.update(response.id, user).subscribe(() => {});
+        this.user.update(response.id, user).subscribe(() => {
+          this.changePage(this.currentPage);
+          this.utilsService.showMessage('Registro actualizado');
+        });
+      } else {
+        const user = { ...response };
+        delete user.id;
+        this.user.insert(user).subscribe(() => {
+          this.changePage(this.currentPage);
+          this.utilsService.showMessage('Registro actualizado');
+        });
       }
     });
   }
@@ -92,63 +102,3 @@ export class PageListComponent extends BaseComponent<UserModel, UserUseCase> {
     }
   }
 }
-// info: MedicUserType[] = [];
-/*  records: Partial<UserModel>[] = [
-    { id: 1, nombre: 'John', correo: 'john@correo.com' },
-    { id: 2, nombre: 'Javier', correo: 'javier@correo.com' },
-    { id: 3, nombre: 'Carmela', correo: 'carmela@correo.com' },
-    { id: 4, nombre: 'Silvia', correo: 'silvia@correo.com' },
-    { id: 5, nombre: 'Carlos', correo: 'carlos@correo.com' },
-    { id: 6, nombre: 'Pedro', correo: 'pedro@correo.com' },
-    { id: 7, nombre: 'Juan', correo: 'juan@correo.com' },
-    { id: 8, nombre: 'Rosa', correo: 'rosa@correo.com' },
-    { id: 9, nombre: 'Antonio', correo: 'antonio@correo.com' },
-    { id: 10, nombre: 'Paul', correo: 'paul@correo.com' },
-    { id: 11, nombre: 'Ana', correo: 'ana@correo.com' },
-  ];
-  totalRecords = this.records.length;
-  keypadButtons: KeyPadButton[] = [
-    {
-      icon: 'cloud_download',
-      tooltip: 'DESCARGAR',
-      color: 'accent',
-      action: 'DOWNLOAD',
-    },
-    {
-      icon: 'add',
-      tooltip: 'AGREGAR',
-      color: 'primary',
-      action: 'NEW',
-    },
-  ];
-
-  metaDataColumns: MetaDataColumn[] = [
-    { field: 'id', title: 'ID' },
-    { field: 'nombre', title: 'Nombre de usuario' },
-    { field: 'correo', title: 'Correo' },
-  ];
-
-  constructor(public utilsService: UtilsService) {
-    super(utilsService);
-    this.changePage(0);
-  }
-
-  doAction(action: string) {
-    switch (action) {
-      case 'DOWNLOAD':
-        const dto = new UserExportDto();
-        this.utilsService.showBottomSheet(
-          'Lista de usuarios',
-          'users',
-          this.records,
-          dto
-        );
-        break;
-      case 'NEW':
-        this.openForm();
-        break;
-    }
-  }
-
-  */
-//}

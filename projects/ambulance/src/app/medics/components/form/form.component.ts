@@ -15,11 +15,6 @@ import { MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER } from '@angular/material/
   ],
 })
 export class FormComponent implements OnInit {
-  roles = [
-    { id: 1, name: 'ADMIN' },
-    { id: 2, name: 'OPERATOR' },
-    { id: 3, name: 'MEDIC' },
-  ];
   title: string;
   group!: FormGroup;
 
@@ -38,21 +33,7 @@ export class FormComponent implements OnInit {
     this.group = new FormGroup({
       id: new FormControl(this.data?.id),
       nombre: new FormControl(this.data?.nombre, Validators.required),
-      correo: new FormControl(this.data?.correo, [
-        Validators.required,
-        Validators.email,
-      ]),
-      roles: new FormControl(this.data?.roles.map((role: any) => role.id)),
     });
-
-    if (this.data) {
-      this.group.addControl('password', new FormControl(''));
-    } else {
-      this.group.addControl(
-        'password',
-        new FormControl('', Validators.required)
-      );
-    }
   }
 
   save() {

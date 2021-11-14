@@ -10,10 +10,11 @@ import { Observable, throwError } from 'rxjs';
 import { catchError, mergeMap, retry } from 'rxjs/operators';
 import { AuthUseCase } from '../../core/application/auth.usecase';
 import { Tokens } from '../../helpers/interfaces/tokens';
+import { UtilsService } from '../../helpers/services/utils.service';
 
 @Injectable()
 export class TokenInterceptor implements HttpInterceptor {
-  constructor(private injector: Injector) {}
+  constructor(private injector: Injector, private utilsService: UtilsService) {}
 
   intercept(
     req: HttpRequest<any>,
@@ -52,6 +53,7 @@ export class TokenInterceptor implements HttpInterceptor {
           if (error.error && error.error.result) {
             return throwError(error.error.result);
           } else {
+            // this.utilsService.showMessage('Error!!!!');
             return throwError(error);
           }
         }
