@@ -1,3 +1,18 @@
 .panel-container {
   width: 600px;
 }
+
+.panel-container .mat-dialog-container {
+  padding: 0;
+}
+
+.panel-container .mat-dialog-content {
+  margin: 0;
+  padding: 24px;
+}
+
+@media (max-width: 599px) {
+  .panel-container {
+    width: 95%;
+  }
+}

@@ -26,6 +26,8 @@ import { MatListModule } from '@angular/material/list';
 import { CdevTableModule } from 'cdev-table';
 import { TitleComponent } from './components/title/title.component';
 import { RolesAllowedDirective } from './directives/roles-allowed.directive';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -72,6 +74,12 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
     MatDialogModule,
     CdevTableModule,
     RolesAllowedDirective,
+    MatFormFieldModule,
+    MatInputModule,
+    FlexLayoutModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSelectModule,
   ],
   providers: [
     {

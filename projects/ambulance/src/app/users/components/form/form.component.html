@@ -1,1 +1,37 @@
-<p>form works!</p>
+<mat-toolbar fxLayout fxLayoutAlign="space-between center">
+  <h3>Editar</h3>
+  <button mat-icon-button mat-dialog-close>
+    <mat-icon>close</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-dialog-content>
+  <form fxLayout="column">
+    <mat-form-field appearance="outline">
+      <mat-label>Nombre</mat-label>
+      <input type="text" matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Correo</mat-label>
+      <input type="text" matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Password</mat-label>
+      <input type="password" matInput />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Roles</mat-label>
+      <mat-select multiple>
+        <mat-option *ngFor="let role of roles" [value]="role.id">
+          {{ role.name }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div fxLayout fxLayoutAlign="end" fxLayoutGap="10px">
+      <button mat-raised-button color="primary" type="button">Grabar</button>
+      <button mat-button type="button" color="primary" mat-dialog-close>
+        Cancelar
+      </button>
+    </div>
+  </form>
+</mat-dialog-content>

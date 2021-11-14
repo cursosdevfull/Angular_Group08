@@ -31,10 +31,6 @@ export class PageListComponent extends BaseComponent<UserModel, UserUseCase> {
     },
   ];
 
-  openForm(row: any): void {
-    throw new Error('Method not implemented.');
-  }
-
   metaDataColumns: MetaDataColumn[] = [
     { field: 'id', title: 'ID' },
     { field: 'nombre', title: 'Nombre' },
@@ -46,6 +42,11 @@ export class PageListComponent extends BaseComponent<UserModel, UserUseCase> {
     protected utilsService: UtilsService
   ) {
     super(user, utilsService);
+  }
+
+  openForm(row: any = null) {
+    const options = { panelClass: 'panel-container', disableClose: true };
+    this.utilsService.showModal(FormComponent, options);
   }
 
   doAction(action: string) {
@@ -62,7 +63,7 @@ export class PageListComponent extends BaseComponent<UserModel, UserUseCase> {
         });
         break;
       case 'NEW':
-        //this.openForm();
+        this.openForm();
         break;
     }
   }
@@ -125,8 +126,5 @@ export class PageListComponent extends BaseComponent<UserModel, UserUseCase> {
     }
   }
 
-  openForm(row: any = null) {
-    const options = { panelClass: 'panel-container' };
-    this.utilsService.showModal(FormComponent, options);
-  } */
+  */
 //}
