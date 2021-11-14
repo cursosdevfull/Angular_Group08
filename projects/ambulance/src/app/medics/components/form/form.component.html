@@ -7,10 +7,48 @@
 
 <mat-dialog-content>
   <form fxLayout="column" [formGroup]="group">
-    <mat-form-field appearance="outline">
-      <mat-label>Nombre</mat-label>
-      <input type="text" matInput formControlName="nombre" required />
-    </mat-form-field>
+    <div fxLayout fxLayoutGap="10px">
+      <div fxLayout="column" fxFlex="1 1 33%">
+        <amb-photo
+          [photoByDefault]="photoToShow"
+          formControlName="foto"
+        ></amb-photo>
+      </div>
+      <div fxLayout="column" fxFlex="1 1 33%">
+        <mat-form-field appearance="outline">
+          <mat-label>Nombre</mat-label>
+          <input type="text" matInput formControlName="nombre" required />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Segundo nombre</mat-label>
+          <input
+            type="text"
+            matInput
+            formControlName="segundo_nombre"
+            required
+          />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Apellido</mat-label>
+          <input type="text" matInput formControlName="apellido" required />
+        </mat-form-field>
+      </div>
+      <div fxLayout="column" fxFlex="1 1 33%">
+        <mat-form-field appearance="outline">
+          <mat-label>CMP</mat-label>
+          <input type="text" matInput formControlName="cmp" required />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>DNI</mat-label>
+          <input type="text" matInput formControlName="dni" required />
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Correo</mat-label>
+          <input type="text" matInput formControlName="correo" required />
+        </mat-form-field>
+      </div>
+    </div>
+
     <div fxLayout fxLayoutAlign="end" fxLayoutGap="10px">
       <button
         mat-raised-button

@@ -17,6 +17,7 @@ import { MAT_TOOLTIP_SCROLL_STRATEGY_FACTORY_PROVIDER } from '@angular/material/
 export class FormComponent implements OnInit {
   title: string;
   group!: FormGroup;
+  photoToShow = '';
 
   constructor(
     private reference: MatDialogRef<FormComponent>,
@@ -33,11 +34,41 @@ export class FormComponent implements OnInit {
     this.group = new FormGroup({
       id: new FormControl(this.data?.id),
       nombre: new FormControl(this.data?.nombre, Validators.required),
+      segundo_nombre: new FormControl(
+        this.data?.segundo_nombre,
+        Validators.required
+      ),
+      apellido: new FormControl(this.data?.apellido, Validators.required),
+      cmp: new FormControl(this.data?.cmp, Validators.required),
+      dni: new FormControl(this.data?.dni, Validators.required),
+      correo: new FormControl(this.data?.correo, Validators.required),
     });
+
+    if (this.data) {
+      this.group.addControl('foto', new FormControl(null));
+      if (this.data.foto) {
+        this.photoToShow = this.data.foto;
+      }
+    } else {
+      this.group.addControl('foto', new FormControl(null, Validators.required));
+    }
+
+    /*     this.group.controls['foto'].disable();
+    this.group.controls['nombre'].disable(); */
   }
 
   save() {
     const record = this.group.value;
-    this.reference.close(record);
+    const recordId = record.id;
+
+    delete record.id;
+
+    const formData = new FormData();
+    for (const key of Object.keys(record)) {
+      const value = record[key];
+      formData.append(key, value);
+    }
+
+    this.reference.close({ id: recordId, medic: formData });
   }
 }

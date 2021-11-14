@@ -63,17 +63,12 @@ export class PageListComponent extends BaseComponent<MedicModel, MedicUseCase> {
       }
 
       if (response.id) {
-        const medic = { ...response };
-        delete medic.id;
-
-        this.medic.update(response.id, medic).subscribe(() => {
+        this.medic.update(response.id, response.medic).subscribe(() => {
           this.changePage(this.currentPage);
           this.utilsService.showMessage('Registro actualizado');
         });
       } else {
-        const medic = { ...response };
-        delete medic.id;
-        this.medic.insert(medic).subscribe(() => {
+        this.medic.insert(response.medic).subscribe(() => {
           this.changePage(this.currentPage);
           this.utilsService.showMessage('Registro actualizado');
         });
