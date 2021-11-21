@@ -6,7 +6,7 @@ import {
   OnInit,
   ViewChild,
 } from '@angular/core';
-import { NG_VALUE_ACCESSOR } from '@angular/forms';
+import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
 import { WebcamImage } from 'ngx-webcam';
 import { environment } from 'projects/ambulance/src/environments/environment';
@@ -24,7 +24,7 @@ import { Subject } from 'rxjs';
     },
   ],
 })
-export class PhotoComponent implements OnInit {
+export class PhotoComponent implements OnInit, ControlValueAccessor {
   @ViewChild('photo') photo!: ElementRef;
   @ViewChild('file') file!: ElementRef;
   @Input() photoByDefault: string = '';
@@ -33,8 +33,11 @@ export class PhotoComponent implements OnInit {
   triggerSnapshot = new Subject<void>();
   value!: File;
 
-  onChange = (_: any) => {};
-  onTouched = () => {};
+  /*   onChange = (_: any) => {};
+  onTouched = () => {}; */
+  onChange: any;
+  onTouched: any;
+
   isDisabled = false;
 
   constructor() {}

@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: '', component: PageLoginComponent },
   {
     path: 'dashboard',
-    canLoad: [AuthenticationGuard],
+    canLoad: [],
     loadChildren: () =>
       import('./dashboard/dashboard.module').then((m) => m.DashboardModule),
   },
