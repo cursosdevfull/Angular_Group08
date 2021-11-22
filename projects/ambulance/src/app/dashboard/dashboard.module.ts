@@ -8,9 +8,13 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { CovidUseCase } from './application/covid.usecase';
 import { CovidRepository } from './application/covid.repository';
 import { CovidInfraestructure } from './infraestructure/covid.infraestructure';
+import { SocketComponent } from './components/socket/socket.component';
+import { SocketRepository } from './application/socket.repository';
+import { SocketUseCase } from './application/socket.usecase';
+import { SocketInfraestructure } from './infraestructure/socket.infraestructure';
 
 @NgModule({
-  declarations: [PageReportsComponent, CovidComponent],
+  declarations: [PageReportsComponent, CovidComponent, SocketComponent],
   imports: [
     CommonModule,
     SharedModule,
@@ -20,6 +24,8 @@ import { CovidInfraestructure } from './infraestructure/covid.infraestructure';
   providers: [
     CovidUseCase,
     { provide: CovidRepository, useClass: CovidInfraestructure },
+    SocketUseCase,
+    { provide: SocketRepository, useClass: SocketInfraestructure },
   ],
 })
 export class DashboardModule {}

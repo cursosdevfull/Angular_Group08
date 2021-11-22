@@ -1,11 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CovidUseCase } from '../../application/covid.usecase';
 import { CovidModel } from '../../domain/covid.model';
-
-interface Entity {
-  name: string;
-  value: number;
-}
+import { Entity } from '../../domain/entity';
 
 @Component({
   selector: 'amb-covid',

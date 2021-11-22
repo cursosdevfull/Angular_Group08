@@ -4,11 +4,12 @@ import { Page } from '../../shared/interfaces/page.interface';
 import { UseCase } from '../../shared/interfaces/usecase.interface';
 import { DriverModel } from '../domain/driver.model';
 import { DriverRepository } from './driver.repository';
+import { DriverInterface } from './driver.interface';
 
 @Injectable({
   providedIn: 'root',
 })
-export class DriverUseCase implements UseCase<DriverModel> {
+export class DriverUseCase implements DriverInterface {
   constructor(private driver: DriverRepository) {}
 
   getByPage(page: number): Observable<Page<DriverModel>> {
