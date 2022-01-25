@@ -8,6 +8,8 @@
       required
       placeholder="Ingrese su correo"
       formControlName="correo"
+      name="correo"
+      id="correo"
     />
     <mat-icon matSuffix>email</mat-icon>
   </mat-form-field>
@@ -19,6 +21,8 @@
       required
       placeholder="Ingrese su contraseña"
       formControlName="password"
+      name="password"
+      id="password"
     />
     <button
       mat-icon-button
@@ -29,7 +33,7 @@
       <mat-icon>{{ togglePassword ? "lock" : "lock_open" }}</mat-icon>
     </button>
   </mat-form-field>
-<!--   <div class="recaptcha">
+  <!--   <div class="recaptcha">
     <re-captcha formControlName="recaptchaReactive"></re-captcha>
   </div> -->
   <button
