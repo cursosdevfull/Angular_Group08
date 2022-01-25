@@ -5,6 +5,7 @@
     [color]="button.color"
     [matTooltip]="button.tooltip"
     (click)="doAction(button.action)"
+    id="{{ button.action }}"
   >
     <mat-icon>{{ button.icon }}</mat-icon>
   </button>
