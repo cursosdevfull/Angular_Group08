@@ -1,7 +1,7 @@
 <mat-nav-list fxLayout="column" fxLayoutAlign="space-between">
   <div>
     <mat-list-item *ngFor="let menu of listMenu">
-      <a [routerLink]="menu.url">
+      <a [routerLink]="menu.url" id="{{ menu.title }}">
         <button mat-icon-button>
           <mat-icon [svgIcon]="menu.icon"></mat-icon>
           <span *ngIf="expanded">{{ menu.title }}</span>
